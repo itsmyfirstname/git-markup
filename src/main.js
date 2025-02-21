@@ -1,7 +1,6 @@
 import * as core from '@actions/core'
 import { Octokit } from "octokit";
 import * as fs from 'fs'
-// import { wait } from './wait.js'
 
 /**
  * The main function for the action.
@@ -45,18 +44,7 @@ export async function run() {
     const markdownContent = readMarkdownNode(path)
     postMarkdownToPR(owner, repo, prNumber, markdownContent,githubToken)
 
-    // // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-    // core.debug(`Loading ${path}`)
-
-    // // Log the current timestamp, wait, then log the new timestamp
-    // core.debug(new Date().toTimeString())
-    // await wait(parseInt(ms, 10))
-    // core.debug(new Date().toTimeString())
-
-    // // Set outputs for other workflow steps to use
-    // core.setOutput('time', new Date().toTimeString())
   } catch (error) {
-    // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
   }
 
