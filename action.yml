@@ -9,15 +9,17 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: Your input description here
+  message-file:
+    description: Path to the file containing the message to post
     required: true
-    default: '1000'
+    default: './message.txt'
+  token:
+    description: GH PAT
 
 # Define your outputs here.
 outputs:
-  time:
-    description: Your output description here
+  result:
+    description: result
 
 runs:
   using: node20
